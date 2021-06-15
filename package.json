@@ -13,5 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^27.0.4"
+  },
+  "dependencies": {
+    "lodash.sortby": "^4.7.0"
   }
 }
