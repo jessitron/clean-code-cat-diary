@@ -5,12 +5,12 @@ function search(phrase) {
 
   for (const i in entries) {
     const e = entries[i];
-    //  console.log("visibility: " + e.visibility)
+    console.log("checking entry: " + i + " which is: " + e.id)
     if (entries[i].visibility === "NONE" && e.cat !== session.cat.name) {
-      //  console.log("Deleting " + i)
+      console.log("Deleting " + i)
       entries.splice(i, 1);
     } else if (entries[i].visibility === "FRIENDS" && !getFriends().includes(e.cat)) {
-      //  console.log("Deleting " + i)
+      console.log("Deleting " + i)
       entries.splice(i, 1);
     }
   }

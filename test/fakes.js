@@ -49,19 +49,26 @@ const fakeEntries = [
     visibility: Visibilities.PRIVATE
   },
   {
+    id: "7-SWEETHEART-FRIENDS",
+    title: "Grass is for laying in",
+    body: "Anything with bugs and mice and baby rabbits inside it, is much better than some old towel",
+    cat: "Sweetheart",
+    visibility: Visibilities.FRIENDS
+  },
+  {
+    id: "7-SWEETHEART-PRIVATE",
+    title: "What is a towel",
+    body: "You pansy indoor cats with your soft things",
+    cat: "Sweetheart",
+    visibility: Visibilities.PRIVATE
+  },
+  {
     id: "7-SWEETHEART-PUBLIC",
     title: "What is a towel",
     body: "You pansy indoor cats with your soft things",
     cat: "Sweetheart",
     visibility: Visibilities.PUBLIC
   },
-  {
-    id: "7-SWEETHEART-FRIENDS",
-    title: "Grass is for laying in",
-    body: "Anything with bugs and mice and baby rabbits inside it, is much better than some old towel",
-    cat: "Sweetheart",
-    visibility: Visibilities.FRIENDS
-  }
 ];
 
 const fakeCatRegard = [
