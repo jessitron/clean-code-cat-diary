@@ -4,7 +4,7 @@
   "description": "Example code for a clean code presentation",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "jest"
   },
   "keywords": [
     "cat-diary"
