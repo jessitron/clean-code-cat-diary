@@ -23,7 +23,8 @@ function search(request, response) {
       rest.push(e);
     }
   }
-  return moveToFront.concat(rest.filter(a => a));
+
+  response.body = JSON.stringify(moveToFront.concat(rest.filter(a => a)));
 }
 
 function getFriends() {

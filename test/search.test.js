@@ -10,10 +10,12 @@ describe("searching", () => {
     fakeEverything();
 
     const request = { body: JSON.stringify({ phrase: "towel" }) }
-    const result = search(request);
+    const response = {};
 
+    search(request, response);
+
+    const result = JSON.parse(response.body);
     const ids = result.map(r => r.id);
-
     assert.deepStrictEqual(ids, [
       "2-PIXIE-PUBLIC",
       "4-PIXIE-FRIENDS",
