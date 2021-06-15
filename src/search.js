@@ -12,18 +12,21 @@ function search(phrase) {
     }
   }
   const moveToFront = [];
+  const rest = []
   for (const i in entries) {
     const e = entries[i];
     console.log(" 2 checking entry: " + i + " which is: " + e.id)
     if (entries[i].visibility === "FRIENDS") {
-      console.log("Deleting " + i)
+      console.log("possibly Deleting " + i)
       if (getFriends().includes(e.cat)) {
-        moveToFront.shift(e);
+        moveToFront.unshift(e);
       }
-      entries.splice(i, 1);
+      //  entries.splice(i, 1);
+    } else {
+      rest.unshift(e);
     }
   }
-  return moveToFront.concat(entries.filter(a => a));
+  return moveToFront.concat(rest.filter(a => a));
 }
 
 function getFriends() {
