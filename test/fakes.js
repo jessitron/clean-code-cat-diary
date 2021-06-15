@@ -70,8 +70,10 @@ const Odin = {
 
 function fakeEverything() {
   global.dbConnection = {};
-  global.dbConnection.query = function () {
-    return fakeEntries;
+  global.dbConnection.query = function (queryString) {
+    if (queryString.match(/from\s+entries/)) {
+      return fakeEntries;
+    }
   };
 
   global.session = {};
