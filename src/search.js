@@ -16,14 +16,14 @@ function search(phrase) {
   for (const i in entries) {
     const e = entries[i];
     console.log(" 2 checking entry: " + i + " which is: " + e.id)
-    if (entries[i].visibility === "FRIENDS") {
+    if (entries[i].visibility === "FRIENDS" || getFriends().includes(e.cat)) {
       console.log("possibly Deleting " + i)
       if (getFriends().includes(e.cat)) {
-        moveToFront.unshift(e);
+        moveToFront.push(e);
       }
       //  entries.splice(i, 1);
     } else {
-      rest.unshift(e);
+      rest.push(e);
     }
   }
   return moveToFront.concat(rest.filter(a => a));
