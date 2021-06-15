@@ -1,12 +1,22 @@
 
 function search(request, response) {
   const phrase = JSON.parse(request.body).phrase;
+
   const entries = global.dbConnection.query(`select title, body, cat, visibility from
   entries where title || body like '%${phrase}%`);
 
+  const sessionCatName = session.cat.name;
+
+  const result = searchInternal(phrase, entries, sessionCatName);
+
+  response.body = JSON.stringify(result);
+}
+
+function searchInternal(phrase, entries, sessionCatName) {
+
   for (const i in entries) {
     const e = entries[i];
-    if (entries[i].visibility === "NONE" && e.cat !== session.cat.name) {
+    if (entries[i].visibility === "NONE" && e.cat !== sessionCatName) {
       entries.splice(i, 1);
     }
   }
@@ -23,8 +33,8 @@ function search(request, response) {
       rest.push(e);
     }
   }
-
-  response.body = JSON.stringify(moveToFront.concat(rest.filter(a => a)));
+  const result = moveToFront.concat(rest.filter(a => a));
+  return result;
 }
 
 function getFriends(cat) {
@@ -39,3 +49,4 @@ function relationships(cat) {
 
 module.exports = search;
 module.exports.getFriends = getFriends;
+module.exports.searchInternal = searchInternal;

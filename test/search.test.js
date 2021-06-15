@@ -1,11 +1,11 @@
 const search = require("../src/search");
-const { fakeEverything } = require("./fakes");
+const { fakeEverything, fakeEntries } = require("./fakes");
 
 const assert = require("assert");
 
 describe("searching", () => {
 
-  it("can do a thing", () => {
+  it.skip("can do a thing", () => {
 
     fakeEverything();
 
@@ -53,4 +53,21 @@ describe("getting friends", () => {
 
     assert.deepStrictEqual(result, false);
   })
+})
+
+describe("The easy-to-test version of search", () => {
+  it("Works the same way as the full one", () => {
+
+    const result = search.searchInternal("towel", fakeEntries, "Odin");
+
+    const ids = result.map(r => r.id);
+    assert.deepStrictEqual(ids, [
+      "2-PIXIE-PUBLIC",
+      "4-PIXIE-FRIENDS",
+      "1-ODIN-PUBLIC",
+      "6-ODIN-PRIVATE",
+      "7-SWEETHEART-PUBLIC",
+    ]);
+  })
+
 })

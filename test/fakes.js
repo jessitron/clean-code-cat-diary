@@ -106,4 +106,4 @@ function fakeEverything(inputEntries = fakeEntries) {
   global.session.cat = Odin;
 }
 
-module.exports = { fakeEverything };
+module.exports = { fakeEverything, fakeEntries, Odin };
