@@ -14,11 +14,11 @@ const fakeEntries = [
     visibility: Visibilities.PUBLIC
   },
   {
-    id: "2-PIXIE-FRIENDS",
+    id: "2-PIXIE-PUBLIC",
     title: "A soft rectangle",
     body: "I spotted a towel in a rectangle shape. It is soft. My entire body fits on it perfectly.",
     cat: "Pixie",
-    visibility: Visibilities.FRIENDS
+    visibility: Visibilities.PUBLIC
   },
   {
     id: "3-PIXIE-PRIVATE",
