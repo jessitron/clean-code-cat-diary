@@ -64,6 +64,21 @@ const fakeEntries = [
   }
 ];
 
+const fakeCatRegard = [
+  {
+    cat1: "Odin",
+    cat2: "Pixie"
+  },
+  {
+    cat1: "Pixie",
+    cat2: "Odin"
+  },
+  {
+    cat1: "Odin",
+    cat2: "Sweetheart"
+  },
+]
+
 const Odin = {
   name: "Odin",
 };
@@ -73,6 +88,9 @@ function fakeEverything() {
   global.dbConnection.query = function (queryString) {
     if (queryString.match(/from\s+entries/)) {
       return fakeEntries;
+    }
+    if (queryString.match(/from\s+cat_regard/)) {
+      return fakeCatRegard;
     }
   };
 
