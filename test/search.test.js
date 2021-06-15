@@ -9,7 +9,6 @@ describe("searching", () => {
 
     fakeEverything();
 
-    global.dbConnection.query()
     const result = search("meow");
 
     const ids = result.map(r => r.id);
