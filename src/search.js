@@ -19,19 +19,27 @@ function removePrivateEntries(entries, sessionCatName) {
   return entries.filter(isVisibleToMe);
 }
 
+function removeFriendsEntriesFromNonfriends(entries) {
+  function isVisibleToMe(entry) {
+    const isOnlyVisibleToFriends = entry.visibility === "FRIENDS";
+    const isWrittenByMyFriend = getFriends(entry.cat);
+    return !isOnlyVisibleToFriends || isWrittenByMyFriend
+  }
+
+  return entries.filter(isVisibleToMe);
+}
+
 function searchInternal(phrase, entries, sessionCatName, getFriends) {
 
   entries = removePrivateEntries(entries, sessionCatName);
+  entries = removeFriendsEntriesFromNonfriends(entries);
 
   const moveToFront = [];
   const rest = []
   for (const i in entries) {
     const e = entries[i];
-    if (entries[i].visibility === "FRIENDS" || getFriends(e.cat)) {
-      if (getFriends(e.cat)) {
-        moveToFront.push(e);
-      }
-      //  entries.splice(i, 1);
+    if (getFriends(e.cat)) {
+      moveToFront.push(e);
     } else {
       rest.push(e);
     }
