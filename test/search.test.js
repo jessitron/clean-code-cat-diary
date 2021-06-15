@@ -19,7 +19,6 @@ describe("searching", () => {
       "4-PIXIE-FRIENDS",
       "6-ODIN-PRIVATE",
       "7-SWEETHEART-PUBLIC",
-      "7-SWEETHEART-FRIENDS",
     ]);
 
   });
