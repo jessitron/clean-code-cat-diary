@@ -8,7 +8,7 @@ function search(phrase) {
     //  console.log("visibility: " + e.visibility)
     if (entries[i].visibility === "NONE" && e.cat !== session.cat.name) {
       //  console.log("Deleting " + i)
-      delete entries[i];
+      entries.splice(i, 1);
     }
   }
   return entries.filter(a => a);
