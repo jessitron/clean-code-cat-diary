@@ -20,7 +20,7 @@ function removePrivateEntries(entries, sessionCatName) {
   return entries.filter(isVisibleToMe);
 }
 
-function removeFriendsEntriesFromNonfriends(entries) {
+function removeFriendsEntriesFromNonfriends(entries, getFriends) {
   function isVisibleToMe(entry) {
     const isOnlyVisibleToFriends = entry.visibility === "FRIENDS";
     const isWrittenByMyFriend = getFriends(entry.cat);
@@ -33,16 +33,28 @@ function removeFriendsEntriesFromNonfriends(entries) {
 function searchInternal(phrase, entries, sessionCatName, getFriends) {
 
   entries = removePrivateEntries(entries, sessionCatName);
-  entries = removeFriendsEntriesFromNonfriends(entries);
+  entries = removeFriendsEntriesFromNonfriends(entries, getFriends);
 
   for (const i in entries) {
     const e = entries[i];
     e.searchRelevance = {
-      friendBonus: getFriends(e.cat) ? 1 : 0
-    }
+      friendStatus: getFriends(e.cat) ? FriendStatus.FRIEND : FriendStatus.NONE,
+    };
   }
-  const result = sortBy(entries, "searchRelevance");
+  const result = entries.sort(compareSearchRelevance);
   return result;
+}
+
+const FriendStatus = {
+  "FRIEND": "FRIEND",
+  "NONE": "NONE"
+}
+
+function compareSearchRelevance({ searchRelevance: sr1 }, { searchRelevance: sr2 }) {
+  if (sr1.friendStatus != sr2.friendStatus) {
+    return sr1.friendStatus === FriendStatus.FRIEND ? -1 : 1;
+  }
+  return 0;
 }
 
 function getFriends(cat) {
