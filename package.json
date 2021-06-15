@@ -4,11 +4,14 @@
   "description": "Example code for a clean code presentation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
     "cat-diary"
   ],
   "author": "@jessitron",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^9.0.0"
+  }
 }
