@@ -11,15 +11,19 @@ function search(phrase) {
       entries.splice(i, 1);
     }
   }
+  const moveToFront = [];
   for (const i in entries) {
     const e = entries[i];
     console.log(" 2 checking entry: " + i + " which is: " + e.id)
-    if (entries[i].visibility === "FRIENDS" && !getFriends().includes(e.cat)) {
+    if (entries[i].visibility === "FRIENDS") {
       console.log("Deleting " + i)
+      if (getFriends().includes(e.cat)) {
+        moveToFront.shift(e);
+      }
       entries.splice(i, 1);
     }
   }
-  return entries.filter(a => a);
+  return moveToFront.concat(entries.filter(a => a));
 }
 
 function getFriends() {
