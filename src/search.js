@@ -1,5 +1,6 @@
 
-function search(phrase) {
+function search(request, response) {
+  const phrase = JSON.parse(request.body).phrase;
   const entries = global.dbConnection.query(`select title, body, cat, visibility from
   entries where title || body like '%${phrase}%`);
 

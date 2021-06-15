@@ -9,7 +9,8 @@ describe("searching", () => {
 
     fakeEverything();
 
-    const result = search("towel");
+    const request = { body: JSON.stringify({ phrase: "towel" }) }
+    const result = search(request);
 
     const ids = result.map(r => r.id);
 
