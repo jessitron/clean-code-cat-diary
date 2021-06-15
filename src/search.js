@@ -17,4 +17,14 @@ function search(phrase) {
   return entries.filter(a => a);
 }
 
+function getFriends() {
+  const r = relationships();
+  return r.map(rr => rr.cat1);
+}
+
+function relationships() {
+  return global.dbConnection.query(`select * from cat_regard where cat2 = ${session.cat.name}`)
+}
+
 module.exports = search;
+module.exports.getFriends = getFriends;

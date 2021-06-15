@@ -23,3 +23,12 @@ describe("searching", () => {
 
   });
 });
+
+describe("getting friends", () => {
+  it("can get the friends of Odin", () => {
+    fakeEverything();
+    const result = search.getFriends();
+
+    assert.deepStrictEqual(result, ["Pixie"]);
+  })
+})
