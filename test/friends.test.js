@@ -1,4 +1,5 @@
-const { listMutuals } = require("../src/friends.js");
+const { listMutuals } = require("../src/friends");
+const Cat = require("../src/Cat");
 
 const assert = require("assert");
 
@@ -8,7 +9,7 @@ describe("cats that are friends", () => {
       { cat1: "Odin", cat2: "Pixie" }, { cat2: "Odin", cat1: "Pixie" },
     ];
     const friendRepository = { retrieveAllFriendships: () => allFriends }
-    const catRepository = { retrieve: () => ({ privacySettings: { blockedCats: [] } }) }
+    const catRepository = { retrieve: () => new Cat("Pixie", { blockedCats: [] }) }
     const result = listMutuals({
       loggedInCatName: "Odin",
       friendRepository,
