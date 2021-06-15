@@ -19,7 +19,6 @@ describe("searching", () => {
       "2-PIXIE-FRIENDS",
       "3-PIXIE-PRIVATE",
       "4-PIXIE-FRIENDS",
-      "5-PIXIE-PUBLIC-NOTOWELS",
       "6-ODIN-PRIVATE",
       "7-SWEETHEART-PUBLIC",
       "7-SWEETHEART-FRIENDS",

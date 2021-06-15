@@ -34,13 +34,13 @@ const fakeEntries = [
     cat: "Pixie",
     visibility: Visibilities.FRIENDS
   },
-  {
-    id: "5-PIXIE-PUBLIC-NOTOWELS",
-    title: "Let's talk about bugs",
-    body: "The windowsill is a perfect spot to stare at tiny flitting creatures",
-    cat: "Pixie",
-    visibility: Visibilities.PUBLIC
-  },
+  // { // don't return this when towels are queried
+  //   id: "5-PIXIE-PUBLIC-NOTOWELS",
+  //   title: "Let's talk about bugs",
+  //   body: "The windowsill is a perfect spot to stare at tiny flitting creatures",
+  //   cat: "Pixie",
+  //   visibility: Visibilities.PUBLIC
+  // },
   {
     id: "6-ODIN-PRIVATE",
     title: "How I really feel about towels",
