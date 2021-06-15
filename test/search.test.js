@@ -9,7 +9,6 @@ describe("searching", () => {
 
     fakeEverything();
 
-    console.log("connection q: " + JSON.stringify(global.dbConnection.query, null, 2))
     global.dbConnection.query()
     const result = search("meow");
 

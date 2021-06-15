@@ -67,10 +67,8 @@ const fakeEntries = [
 function fakeEverything() {
   global.dbConnection = {};
   global.dbConnection.query = function () {
-    console.log("querying the database...")
     return fakeEntries;
   };
-
 }
 
 module.exports = { fakeEverything };
