@@ -40,10 +40,17 @@ it.skip("handles two private entries in a row", () => {
 })
 
 describe("getting friends", () => {
-  it("can get the friends of Odin", () => {
+  it("can get a friend of Odin", () => {
     fakeEverything();
-    const result = search.getFriends();
+    const result = search.getFriends("Pixie");
 
-    assert.deepStrictEqual(result, ["Pixie"]);
+    assert.deepStrictEqual(result, true);
+  });
+
+  it("can not-get a not-friend of Odin", () => {
+    fakeEverything();
+    const result = search.getFriends("Sweetheart");
+
+    assert.deepStrictEqual(result, false);
   })
 })

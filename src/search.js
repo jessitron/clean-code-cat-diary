@@ -14,8 +14,8 @@ function search(request, response) {
   const rest = []
   for (const i in entries) {
     const e = entries[i];
-    if (entries[i].visibility === "FRIENDS" || getFriends().includes(e.cat)) {
-      if (getFriends().includes(e.cat)) {
+    if (entries[i].visibility === "FRIENDS" || getFriends(e.cat)) {
+      if (getFriends(e.cat)) {
         moveToFront.push(e);
       }
       //  entries.splice(i, 1);
@@ -27,13 +27,14 @@ function search(request, response) {
   response.body = JSON.stringify(moveToFront.concat(rest.filter(a => a)));
 }
 
-function getFriends() {
-  const r = relationships();
-  return r.map(rr => rr.cat1);
+function getFriends(cat) {
+  const r = relationships(cat);
+  // console.log(`cat ${cat} r ${JSON.stringify(r)}`)
+  return r.length > 0;
 }
 
-function relationships() {
-  return global.dbConnection.query(`select * from cat_regard where cat2 = ${session.cat.name}`)
+function relationships(cat) {
+  return global.dbConnection.query(`select * from cat_regard where cat2 = '${session.cat.name}' and cat1 = '${cat}'`)
 }
 
 module.exports = search;

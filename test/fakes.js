@@ -97,7 +97,8 @@ function fakeEverything(inputEntries = fakeEntries) {
       return inputEntries;
     }
     if (queryString.match(/from\s+cat_regard/)) {
-      return fakeCatRegard.filter(cr => cr.cat2 === "Odin");
+      const cat1 = /cat1 = '(.*)'/.exec(queryString)[1];
+      return fakeCatRegard.filter(cr => cr.cat2 === "Odin" && cr.cat1 === cat1);
     }
   };
 
