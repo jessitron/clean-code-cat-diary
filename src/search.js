@@ -9,6 +9,9 @@ function search(phrase) {
     if (entries[i].visibility === "NONE" && e.cat !== session.cat.name) {
       //  console.log("Deleting " + i)
       entries.splice(i, 1);
+    } else if (entries[i].visibility === "FRIENDS") {
+      //  console.log("Deleting " + i)
+      entries.splice(i, 1);
     }
   }
   return entries.filter(a => a);
