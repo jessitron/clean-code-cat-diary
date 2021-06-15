@@ -1,4 +1,3 @@
-const sortBy = require('lodash.sortby');
 
 function search(request, response) {
   const phrase = JSON.parse(request.body).phrase;
@@ -35,14 +34,17 @@ function searchInternal(phrase, entries, sessionCatName, getFriends) {
   entries = removePrivateEntries(entries, sessionCatName);
   entries = removeFriendsEntriesFromNonfriends(entries, getFriends);
 
-  for (const i in entries) {
-    const e = entries[i];
-    e.searchRelevance = {
-      friendStatus: getFriends(e.cat) ? FriendStatus.FRIEND : FriendStatus.NONE,
-    };
-  }
+  entries.map(e => {
+    e.searchRelevance = evaluateSearchRelevance(e, getFriends)
+  });
   const result = entries.sort(compareSearchRelevance);
   return result;
+}
+
+function evaluateSearchRelevance(entry, getFriends) {
+  return {
+    friendStatus: getFriends(entry.cat) ? FriendStatus.FRIEND : FriendStatus.NONE,
+  }
 }
 
 const FriendStatus = {
