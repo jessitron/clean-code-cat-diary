@@ -90,7 +90,7 @@ function fakeEverything() {
       return fakeEntries;
     }
     if (queryString.match(/from\s+cat_regard/)) {
-      return fakeCatRegard;
+      return fakeCatRegard.filter(cr => cr.cat2 === "Odin");
     }
   };
 
