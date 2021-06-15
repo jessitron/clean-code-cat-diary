@@ -10,6 +10,16 @@ function search(request, response) {
   response.body = JSON.stringify(result);
 }
 
+function searchInternal(phrase, entries, sessionCatName, getFriends) {
+
+  entries = removePrivateEntries(entries, sessionCatName);
+  entries = removeFriendsEntriesFromNonfriends(entries, getFriends);
+
+  const result = entries.sort(compareEntriesBySearchRelevance(getFriends));
+  return result;
+}
+
+
 function removePrivateEntries(entries, sessionCatName) {
   function isVisibleToMe(entry) {
     const isPrivate = entry.visibility === "NONE";
@@ -29,18 +39,6 @@ function removeFriendsEntriesFromNonfriends(entries, getFriends) {
   return entries.filter(isVisibleToMe);
 }
 
-function searchInternal(phrase, entries, sessionCatName, getFriends) {
-
-  entries = removePrivateEntries(entries, sessionCatName);
-  entries = removeFriendsEntriesFromNonfriends(entries, getFriends);
-
-  entries.map(e => {
-    e.searchRelevance = evaluateSearchRelevance(e, getFriends)
-  });
-  const result = entries.sort(compareSearchRelevance);
-  return result;
-}
-
 function evaluateSearchRelevance(entry, getFriends) {
   return {
     friendStatus: getFriends(entry.cat) ? FriendStatus.FRIEND : FriendStatus.NONE,
@@ -52,7 +50,13 @@ const FriendStatus = {
   "NONE": "NONE"
 }
 
-function compareSearchRelevance({ searchRelevance: sr1 }, { searchRelevance: sr2 }) {
+function compareEntriesBySearchRelevance(getFriends) {
+  return (e1, e2) => {
+    return compareSearchRelevance(evaluateSearchRelevance(e1, getFriends), evaluateSearchRelevance(e2, getFriends))
+  }
+}
+
+function compareSearchRelevance(sr1, sr2) {
   if (sr1.friendStatus != sr2.friendStatus) {
     return sr1.friendStatus === FriendStatus.FRIEND ? -1 : 1;
   }
