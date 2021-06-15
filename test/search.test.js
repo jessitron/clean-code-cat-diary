@@ -14,9 +14,9 @@ describe("searching", () => {
     const ids = result.map(r => r.id);
 
     assert.deepStrictEqual(ids, [
-      "1-ODIN-PUBLIC",
       "2-PIXIE-PUBLIC",
       "4-PIXIE-FRIENDS",
+      "1-ODIN-PUBLIC",
       "6-ODIN-PRIVATE",
       "7-SWEETHEART-PUBLIC",
     ]);
