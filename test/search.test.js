@@ -5,7 +5,7 @@ const assert = require("assert");
 
 describe("searching", () => {
 
-  it.skip("can do a thing", () => {
+  it("can do a thing", () => {
 
     fakeEverything();
 
@@ -58,7 +58,9 @@ describe("getting friends", () => {
 describe("The easy-to-test version of search", () => {
   it("Works the same way as the full one", () => {
 
-    const result = search.searchInternal("towel", fakeEntries, "Odin");
+    function getFriends(cat) { return cat === "Pixie" }
+
+    const result = search.searchInternal("towel", fakeEntries, "Odin", getFriends);
 
     const ids = result.map(r => r.id);
     assert.deepStrictEqual(ids, [

@@ -1,25 +1,28 @@
 
 function search(request, response) {
   const phrase = JSON.parse(request.body).phrase;
-
   const entries = global.dbConnection.query(`select title, body, cat, visibility from
   entries where title || body like '%${phrase}%`);
-
   const sessionCatName = session.cat.name;
 
-  const result = searchInternal(phrase, entries, sessionCatName);
+  const result = searchInternal(phrase, entries, sessionCatName, getFriends);
 
   response.body = JSON.stringify(result);
 }
 
-function searchInternal(phrase, entries, sessionCatName) {
-
-  for (const i in entries) {
-    const e = entries[i];
-    if (entries[i].visibility === "NONE" && e.cat !== sessionCatName) {
-      entries.splice(i, 1);
-    }
+function removePrivateEntries(entries, sessionCatName) {
+  function isVisibleToMe(entry) {
+    const isPrivate = entry.visibility === "NONE";
+    const isMyEntry = entry.cat === sessionCatName;
+    return !isPrivate || isMyEntry;
   }
+  return entries.filter(isVisibleToMe);
+}
+
+function searchInternal(phrase, entries, sessionCatName, getFriends) {
+
+  entries = removePrivateEntries(entries, sessionCatName);
+
   const moveToFront = [];
   const rest = []
   for (const i in entries) {
