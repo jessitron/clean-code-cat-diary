@@ -90,11 +90,11 @@ const Odin = {
   name: "Odin",
 };
 
-function fakeEverything() {
+function fakeEverything(inputEntries = fakeEntries) {
   global.dbConnection = {};
   global.dbConnection.query = function (queryString) {
     if (queryString.match(/from\s+entries/)) {
-      return fakeEntries;
+      return inputEntries;
     }
     if (queryString.match(/from\s+cat_regard/)) {
       return fakeCatRegard.filter(cr => cr.cat2 === "Odin");

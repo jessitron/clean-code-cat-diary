@@ -9,7 +9,7 @@ describe("searching", () => {
 
     fakeEverything();
 
-    const result = search("meow");
+    const result = search("towel");
 
     const ids = result.map(r => r.id);
 
@@ -23,6 +23,18 @@ describe("searching", () => {
 
   });
 });
+
+it("handles two private entries in a row", () => {
+  const twoPrivateEntries = [
+    { id: "1-PIXIE-PRIVATE", cat: "Pixie", visibility: "NONE" },
+    { id: "2-PIXIE-PRIVATE", cat: "Pixie", visibility: "NONE" },
+  ]
+  fakeEverything(twoPrivateEntries);
+
+  const result = search("meow");
+
+  assert.deepStrictEqual(result, []);
+})
 
 describe("getting friends", () => {
   it("can get the friends of Odin", () => {
