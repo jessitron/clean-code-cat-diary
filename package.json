@@ -12,6 +12,6 @@
   "author": "@jessitron",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^9.0.0"
+    "jest": "^27.0.4"
   }
 }
