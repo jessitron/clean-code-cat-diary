@@ -6,7 +6,7 @@ function search(phrase) {
   for (const i in entries) {
     const e = entries[i];
     console.log("visibility: " + e.visibility)
-    if (entries[i].visibility === "NONE") {
+    if (entries[i].visibility === "NONE" && e.cat !== session.cat.name) {
       console.log("Deleting " + i)
       delete entries[i];
     }

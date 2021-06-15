@@ -62,13 +62,20 @@ const fakeEntries = [
     cat: "Sweetheart",
     visibility: Visibilities.FRIENDS
   }
-]
+];
+
+const Odin = {
+  name: "Odin",
+};
 
 function fakeEverything() {
   global.dbConnection = {};
   global.dbConnection.query = function () {
     return fakeEntries;
   };
+
+  global.session = {};
+  global.session.cat = Odin;
 }
 
 module.exports = { fakeEverything };
