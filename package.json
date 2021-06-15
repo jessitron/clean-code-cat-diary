@@ -1,0 +1,14 @@
+{
+  "name": "clean-code-cat",
+  "version": "1.0.0",
+  "description": "Example code for a clean code presentation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cat-diary"
+  ],
+  "author": "@jessitron",
+  "license": "ISC"
+}
