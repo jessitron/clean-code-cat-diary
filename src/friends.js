@@ -1,4 +1,10 @@
-
+// Can you make the listMutuals function have one level of abstraction?
+// create as many smaller functions as is useful.
+//
+// If you have time after that, can you make each function either:
+//   - list what to do
+//   - make a decision, or
+//   - tell how to do one thing.
 
 function listMutuals({
   loggedInCatName,

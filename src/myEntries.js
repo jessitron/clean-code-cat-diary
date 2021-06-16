@@ -1,4 +1,4 @@
-
+// How many expressions can you extract into a clearly named const or function?
 
 function fetchMyEntries(request, response) {
   response.body = JSON.stringify(global.dbConnection.query(`select * from entries where cat = ${session.cat.name} order by ${JSON.parse(request.body).sortBy === "title" ? "title" : "created_date"}`)

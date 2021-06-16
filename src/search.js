@@ -1,3 +1,6 @@
+// what is this even doing??
+// can we make that clear?
+// can we make that testable?
 
 function search(request, response) {
   const phrase = JSON.parse(request.body).phrase;
