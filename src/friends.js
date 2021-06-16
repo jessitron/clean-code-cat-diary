@@ -4,6 +4,7 @@ function listMutuals({
   loggedInCatName,
   friendRepository,
   catRepository,
+  blockingIsUndetectable
 }) {
 
   const friendships = friendRepository.retrieveAllFriendships(loggedInCatName);
