@@ -3,6 +3,16 @@
 A tiny piece of an imaginary cat diary app, created as an example
 of code that could be cleaner.
 
+## Cat Diary
+
+Imagine a web site where cats can write diary entries. They can mark other cats for whom they have high regard as friends. They can create diary entries that are private, public, or visible only to friends.
+
+This site values privacy, so cats can block other cats. They can also hide whether they consider other cats friends.
+
+Cats can search all the diary entries visible to them.
+
+(this repo only contains code snippets from this cat-diary domain. It is for running a short workshop on clean code.)
+
 ## Why clean code?
 
 To change code, we need to understand it.
