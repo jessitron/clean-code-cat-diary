@@ -5,6 +5,8 @@ of code that could be cleaner.
 
 ## Cat Diary
 
+![cat diary entries](docs/cat-diary.jpg)
+
 Imagine a web site where cats can write diary entries. They can mark other cats for whom they have high regard as friends. They can create diary entries that are private, public, or visible only to friends.
 
 This site values privacy, so cats can block other cats. They can also hide whether they consider other cats friends.
