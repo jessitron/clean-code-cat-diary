@@ -1,4 +1,6 @@
 const Config = require("./Config");
+const { CatRepository } = require("./Cat");
+const { EmailService } = require("./service/Email.js");
 
 // Can you separate the logic of this function from the side effects?
 // Can you make a function that receives the data or functions it needs as parameters,

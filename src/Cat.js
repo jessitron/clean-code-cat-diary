@@ -9,4 +9,11 @@ class Cat {
   }
 }
 
-module.exports = { Cat };
+CatRepository = {
+  retrieve(catName) {
+    // IRL, go to the database
+    return new Cat(catName, { blockedCats: [] })
+  }
+}
+
+module.exports = { Cat, CatRepository };
