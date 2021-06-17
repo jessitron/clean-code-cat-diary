@@ -37,3 +37,12 @@ Today, we will talk about a few of them.
 - your teammates can understand it pretty quickly
 - and their initial understanding is correct. there are no surprises lurking (like db access, global state changes)
 
+
+
+## In Breakout Rooms
+
+1) one person, either clone this or open it on GitHub: https://github.com/jessitron/clean-code-cat-diary
+2) Each group to look at one function: 
+src/messages.js
+src/myEntries.js
+src/friends.js
