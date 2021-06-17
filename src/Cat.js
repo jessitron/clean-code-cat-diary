@@ -9,4 +9,4 @@ class Cat {
   }
 }
 
-module.exports = Cat;
+module.exports = { Cat };

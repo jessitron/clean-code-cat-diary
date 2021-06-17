@@ -41,8 +41,13 @@ Today, we will talk about a few of them.
 
 ## In Breakout Rooms
 
-1) one person, either clone this or open it on GitHub: https://github.com/jessitron/clean-code-cat-diary
-2) Each group to look at one function: 
-src/messages.js
-src/myEntries.js
-src/friends.js
+1) one person, either clone this repo or open it on GitHub: https://github.com/jessitron/clean-code-cat-diary
+2) Each group, please open one file for editing:
+
+group | file
+-----|-----
+ Group 1: | src/messages.js 
+ Group 2: | src/myEntries.js 
+Group 3: | src/friends.js 
+
+3) Try to make the code more readable. Don't worry if your syntax isn't quite valid.

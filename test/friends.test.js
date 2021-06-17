@@ -1,5 +1,5 @@
 const { listMutuals } = require("../src/friends");
-const Cat = require("../src/Cat");
+const { Cat } = require("../src/Cat");
 
 const assert = require("assert");
 
