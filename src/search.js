@@ -2,6 +2,12 @@
 // can we make that clear?
 // can we make that testable?
 
+
+/**
+ * Send entries that match the search phrase
+ * @param request 
+ * @param response 
+ */
 function search(request, response) {
   const phrase = JSON.parse(request.body).phrase;
   const entries = global.dbConnection.query(`select title, body, cat, visibility from

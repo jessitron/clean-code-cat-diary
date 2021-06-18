@@ -6,9 +6,9 @@ of code that could be cleaner.
 ## This wee workshop
 
 0) Please clone this repository from public GitHub: https://github.com/jessitron/clean-code-cat-diary/
-1) What is clean code? A few heuristics we will work on today
-2) Look at a messy function together. Try to make it clearer
-3) In 3 breakout groups, look at a smaller function and try to make it clearer.
+1) **What is clean code?** A few heuristics we will work on today
+2) **Look at a messy function together.** Try to make it clearer
+3) In **breakout groups**, look at a smaller function and try to make it clearer.
 
 ## Why clean code?
 
@@ -22,7 +22,7 @@ There are some heuristics that move almost any code toward "cleaner."
 Today, we will talk about a few of them.
 
 1. **Accurate naming**, and more naming
-2. A **single level of abstraction** per function or method
+2. A **single level of abstraction** per method. Steps OR decision OR manipulation
 3. **Data-in, data-out** functions
 
 ## What is "clean enough"?
@@ -44,6 +44,25 @@ Cats can search all the diary entries visible to them.
 
 (this repo only contains code snippets from this cat-diary domain. It is for running a short workshop on clean code.)
 
+## A Messy Function
+
+### disclaimer 
+
+All code in this repository is fiction. It is not for running, but for reading and refactoring.
+
+It happens to be JavaScript, but when you refactor it, it's fine if you use pseudocode. The point is to make it speak, not keep it running.
+
+There are minimal tests, in case you want their help with refactoring.
+
+### search
+
+Let's look at the (fictional) implementation of search: [src/search.js](https://github.com/jessitron/clean-code-cat-diary/blob/main/src/search.js)
+
+This function returns entries that match a search phrase.
+
+Can you tell what it does?
+
+Can we make the function tell us clearly what it does, and why?
 
 ## In Breakout Rooms
 
