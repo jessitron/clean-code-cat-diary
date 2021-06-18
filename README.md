@@ -26,9 +26,9 @@ There are some heuristics that move almost any code toward "cleaner."
 
 Today, we will talk about a few of them.
 
-1. Accurate naming, and more naming
-2. A single level of abstraction per function or method
-3. Data-in, data-out functions
+1. **Accurate naming**, and more naming
+2. A **single level of abstraction** per function or method
+3. **Data-in, data-out** functions
 
 ## What is "clean enough"?
 
@@ -46,8 +46,8 @@ Today, we will talk about a few of them.
 
 group | file
 -----|-----
- Group 1: | src/messages.js 
- Group 2: | src/myEntries.js 
-Group 3: | src/friends.js 
+ Group 1: | [src/messages.js]()
+ Group 2: | [src/myEntries.js]()
+Group 3: | [src/friends.js]()
 
 3) Try to make the code more readable. Don't worry if your syntax isn't quite valid.
