@@ -46,8 +46,8 @@ Today, we will talk about a few of them.
 
 group | file
 -----|-----
- Group 1: | [src/messages.js]()
- Group 2: | [src/myEntries.js]()
-Group 3: | [src/friends.js]()
+ Group 1: | [src/messages.js](https://github.com/jessitron/clean-code-cat-diary/blob/main/src/messaging.js)
+ Group 2: | [src/myEntries.js](https://github.com/jessitron/clean-code-cat-diary/blob/main/src/myEntries.js)
+Group 3: | [src/friends.js](https://github.com/jessitron/clean-code-cat-diary/blob/main/src/friends.js)
 
 3) Try to make the code more readable. Don't worry if your syntax isn't quite valid.
